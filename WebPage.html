@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Component Order Form</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  h1 {
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Computer Component Order Form</h1>
+  <form id="orderForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="component">Select a Component:</label>
+    <select id="component" name="component">
+      <option value="cpu">CPU</option>
+      <option value="gpu">GPU</option>
+      <option value="ram">RAM</option>
+      <option value="storage">Storage</option>
+    </select>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" required>
+
+    <button type="submit">Place Order</button>
+  </form>
+  <p id="confirmationMessage" style="display: none; color: green; text-align: center;">Order placed successfully!</p>
+</div>
+
+<script>
+  const orderForm = document.getElementById("orderForm");
+  const confirmationMessage = document.getElementById("confirmationMessage");
+
+  orderForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    confirmationMessage.style.display = "block";
+    setTimeout(() => {
+      confirmationMessage.style.display = "none";
+      orderForm.reset();
+    }, 3000);
+  });
+</script>
+</body>
+</html>
